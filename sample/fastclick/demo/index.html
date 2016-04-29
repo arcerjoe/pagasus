@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+p{
+    width: 90%;  
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    margin: 10px auto;
+}
+</style>
+</head>
+<body>
+    <p>click</p>
+    <p>click</p>
+</body>
+<script src="http://192.168.1.158:701/static/js/jquery1.10.2.js"></script>
+<script>
+$(function(){
+    $('p').click(function(){
+        alert('1')
+    })
+})
+</script>
+</html>

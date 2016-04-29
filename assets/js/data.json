@@ -1,3 +1,13 @@
 var data = [{
-    "src": "sample/测试页面/index.html"
+    "src": "sample/gulpfile/index.php",
+    "tit": "gulpfile.js规范"
+},{
+    "src": "sample/sass/index.php",
+    "tit": "SASS编码风格规范"
+},{
+    "src": "sample/fastclick/index.php",
+    "tit": "fastclick.js"
+}, {
+    "src": "sample/tab_long/index.php",
+    "tit": "长页面tab切换导航"
 }]

@@ -7,25 +7,17 @@
     <script src="assets/js/less.min.js"></script>
     <script src="assets/js/angular.js"></script>
 </head>
-<body>
-<div class="sidebar" ng-controller="list_div">
+<body class="body_modules_index">
+<div class="sidebar" id="J_sidebar" ng-controller="list_div">
     <ul>
-        <li ng-repeat="item in lists" ng-click="a(item.src)">{{item.src}}</li>
+        <li ng-repeat="item in lists" on-finish-render-filters ng-click="a(item.src)">{{item.tit}}</li>
     </ul>
 </div>
 <div class="container">
     <iframe src="" frameborder="no"></iframe>
 </div>
+<script src="assets/js/jquery1.10.2.js"></script>
 <script src="assets/js/data.json"></script>
-<script>
-var app = angular.module('app',[]);
-app.controller('list_div', function($scope){
-    $scope.lists = data;
-    $scope.a = function(i){
-        document.getElementsByTagName('iframe')[0].setAttribute('src',i);
-    }
-
-})
-</script>
+<script src="assets/js/js.js"></script>
 </body>
 </html>

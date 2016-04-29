@@ -7,7 +7,7 @@
  * @version 
  */
 
-html, body, .sidebar, .container iframe{
+html, body, .sidebar{
     height: 100%;
 }
 
@@ -95,9 +95,11 @@ sup {
 sub {
     vertical-align: text-bottom;
 }
+.mt10{ margin-top: 10px!important}
 
-// body
-body {
+
+// 模块首页样式
+.body_modules_index {
     padding-left: 200px;
 }
 
@@ -106,7 +108,7 @@ body {
     float: left;
     width: 200px;
     margin-left: -200px;
-    background: #ddd;
+    background: #2a333c;
     font-size: 13px;
     li {
         height: 34px;
@@ -114,9 +116,11 @@ body {
         padding: 0 5px;
         cursor: pointer;
         overflow: hidden;
-        &:hover {
-            color: #fff;
-            background: #104984;
+        color: #fff;
+        transition: .2s ease-in;
+        border-bottom: 1px solid #c12127;
+        &:hover, &.cur {
+            background: #c12127;
         }
     }
 }
@@ -125,4 +129,59 @@ body {
 iframe {
     width: 100%;
     height: 100%;
+}
+
+
+// 子页面的样式
+.border_radius{
+    border-radius: 6px;
+}
+.body_subpage{
+    padding: 5px 10px;
+    a{
+        color: #03A9F4;
+    }
+    .title{
+        font: 18px/30px SimHei;
+        color: #2a333c;
+        border-bottom: 2px solid #c12127;
+        padding: 0 5px;
+    }
+}
+div[class^="area_"]{
+    margin-bottom: 20px;
+}
+.area_directions{
+    line-height: 24px;
+    color: #666;
+    ul{
+        padding: 10px 5px 0;
+    }
+    li{
+        cursor: default;
+        transition: .2s ease-in;
+        &:hover{
+            border-bottom: 1px solid #eee;
+            color: #000;
+        }
+    }
+}
+.area_demo{
+    .content{
+        margin-top: 10px;
+        height: 300px;
+        border: 1px solid #999;
+        .border_radius;
+        &.none{
+            border: none;
+            height: auto;
+        }
+    }
+}
+.syntaxhighlighter{
+    padding: 10px 0;
+    .border_radius;
+}
+.syntaxhighlighter .toolbar{
+    display: none;
 }
