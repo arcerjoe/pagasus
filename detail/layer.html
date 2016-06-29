@@ -1,0 +1,171 @@
+<div class="area_directions">
+    <ul>
+        <li>本文档主要针对layer1.9及以上版本，以下说明用法为pc端</li>
+        <li>下载插件包，注意：插件有分pc端使用场景和m端使用场景，别下错了！！！！</li>
+        <li>主要功能有：询问、提示、第三方扩展皮肤、自定页、tips、iframe层/iframe窗、loading</li>
+        <li>主要参数说明(说明来自官方文档)：
+            <div>
+                <p>type（基本层类型）</p>
+                <p>类型：Number，默认：0</p>
+                <p>layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）。 若你采用layer.open({type: 1})方式调用，则type为必填项（信息框除外）</p>
+            </div>
+            <div class="mt10">
+                <p>title（标题）</p>
+                <p>类型：String/Array/Boolean，默认：'信息'</p>
+                <p>title支持三种类型的值，若你传入的是普通的字符串，如title :'我是标题'，那么只会改变标题文本；若你还需要自定义标题区域样式，那么你可以title: ['文本', 'font-size:18px;']，数组第二项可以写任意css样式；如果你不想显示标题栏，你可以title: false</p>
+            </div>
+            <div class="mt10">
+                <p>content（内容）</p>
+                <p>类型：String/DOM/Array，默认：''</p>
+                <p>content可传入的值是灵活多变的，不仅可以传入普通的html内容，还可以指定DOM，更可以随着type的不同而不同。详细代码请看代码结构部分，content的使用</p>
+            </div>
+            <div class="mt10">
+                <p>skin（样式类名即皮肤）</p>
+                <p>类型：String，默认：''</p>
+                <p>kin不仅允许你传入layer内置的样式class名，还可以传入您自定义的class名。这是一个很好的切入点，意味着你可以借助skin轻松完成不同的风格定制。目前layer内置的skin有：layui-layer-lanlayui-layer-molv。详细说明，请看代码结构部分</p>
+            </div>
+            <div class="mt10">
+                <p>area（宽高）</p>
+                <p>类型：String/Array，默认：'auto'</p>
+                <p>在默认状态下，layer是宽高都自适应的，但当你只想定义宽度时，你可以area: '500px'，高度仍然是自适应的。当你宽高都要定义时，你可以area: ['500px', '300px']</p>
+            </div>
+            <div class="mt10">
+                <p>btn（按钮）</p>
+                <p>类型：String/Array，默认：'确认'</p>
+                <p>信息框模式时，btn默认是一个确认按钮，其它层类型则默认不显示，加载层和tips层则无效。当您只想自定义一个按钮时，你可以btn: '我知道了'，当你要定义两个按钮时，你可以btn: ['yes', 'no']。当然，你也可以定义更多按钮，比如：btn: ['按钮1', '按钮2', '按钮3', …]，按钮1和按钮2的回调分别是yes和cancel，而从按钮3开始，则回调为btn3: function(){}，以此类推。详细说明，请看代码结构部分</p>
+            </div>
+            <div class="mt10">
+                <p>closeBtn（关闭按钮）</p>
+                <p>类型：String/Boolean，默认：1</p>
+                <p>layer提供了两种风格的关闭按钮，可通过配置1和2来展示，如果不显示，则closeBtn: 0.</p>
+            </div>
+            <div class="mt10">
+                <p>yes（确定按钮回调方法）</p>
+                <p>类型：Function，默认：null</p>
+                <P>该回调携带两个参数，分别为当前层索引、当前层DOM对象.详细用法，请看代码结构部分</P>
+            </div>
+            <div class="mt10">
+                <p>cancel（取消和关闭按钮触发的回调）</p>
+                <p>类型：Function，默认：null.</p>
+                <p>该回调同样只携带当前层索引一个参数，无需进行手工关闭。如果不想关闭，return false即可，如 cancel: function(index){ return false; } 则不会关闭；详细用法，请看代码结构部分</p>
+                <p>通常用于，点击取消按钮后，还有其他用法，比如，点击取消，弹窗关闭，并跳转等</p>
+            </div>
+            <div class="mt10">
+                <p>tips （tips方向和颜色）</p>
+                <p>类型：Number/Array，默认：2</p>
+                <p>tips层的私有参数。支持上右下左四个方向，通过1-4进行方向设定。如tips: 3则表示在元素的下面出现。有时你还可能会定义一些颜色，可以设定tips: [1, '#c00']</p>
+            </div>
+            <div class="mt10">
+                <p>icon - 图标 （信息框和加载层的私有参数）</p>
+                <p>类型：Number，默认：-1（信息框）/0（加载层）</p>
+                <p>信息框默认不显示图标。当你想显示图标时，默认皮肤可以传入0-6如果是加载层，可以传入0-2</p>
+            </div>
+        <li>这里列出只是常用部分，想要查看更多可以访问<a href="http://layer.layui.com/api.html">官方文档</a></li>
+    </ul>
+</div>
+<div class="area_code ng-scope">
+    <div class="title">代码结构</div>
+    <div class="mt10">页面层即弹窗调用方式</div>
+    <pre class="brush: js">
+        //正常调用方式
+         layer.open({
+            type: 1,//如果你要使用iframe层，只需要type：2，其他保持不变
+            title: '任务未完成',
+            area: ['460px', ''],//高度仍然是自适应的，两种方式，任选1个
+            area: ['500px', '300px']//宽高都定义
+            maxWidth:500,//当快高都不设置，为适应宽高,你也许要，设置最大宽度预防弹窗过大，layer默认最小宽度是360，你可以使用maxWidth（最大宽度），当area: 'auto'时，maxWidth的设定才有效
+            //内容传入你可以content是一个普通的String
+            content: '任务未完成，请先完成任务！',
+            //或者是一个DOM
+            content: $('#id')
+            //或者Ajax获取，注意，如果str是object，那么需要字符拼接
+            content: str
+            //一个按钮时，两种方式，任选1个
+            btn: ['马上去完成'],
+            //二个按钮
+            btn: ['马上去完成', '我知道了'],
+            //确定按钮回调方法，如果设定了yes回调，需进行手工关闭，根据需要可自行添加，不是必须条件
+            yes: function (index) {
+                window.open(data.perform_url);
+            }
+            //取消和关闭按钮触发的回调,根据需要可自行添加，不是必须条件
+            cancel:function(index){
+                window.open(data.perform_url);
+            }
+        });
+        //如果你使用的框架有iframe，你可以把相对应的样式，js放在父级框架。子级iframe里面只需要 parent.layer.open，这样调用，其他的不变
+        parent.layer.open({
+            type: 1,
+            title: '任务未完成',
+            area: ['460px', ''],
+            content: '任务未完成，请先完成任务！',
+            btn: ['马上去完成', '我知道了'],
+            yes: function (index) {
+                window.open(data.perform_url);
+            }
+        });
+    </pre>
+    <div class="mt10">tips层即提示带三角图标</div>
+    <pre class="brush: js">
+        //tips层在上方
+        layer.tips('上', '#id或者.class', {
+          tips: [1, '#0FA6D8'] //还可配置颜色
+        });
+
+        //tips层在右方
+        layer.tips('默认就是向右的', '#id或者.class');
+
+        //tips层在下方
+        layer.tips('下', '#id或者.class', {
+          tips: 3
+        });
+
+        //tips层在左方
+        layer.tips('左边么么哒', '#id或者.class', {
+          tips: [4, '#78BA32']
+        });
+    </pre>
+    <div class="mt10">tips层即提示不带三角图标</div>
+    <pre class="brush: js">
+        //内容不带图标
+        layer.msg('玩命提示中',{
+            time: 2000 //2秒关闭（如果不配置，默认是3秒）
+        }) ;
+
+        //内容带图标
+         layer.msg('玩命提示中',{
+            icon: 4,//icon:1 为圆圈+√图标，颜色为绿色，icon:2 为圆圈+×图标颜色为红色，icon:3 为圆圈+?图标，颜色为橙色,icon:4 为圆圈+锁图标颜色为灰色，
+                    //icon:5 为圆圈+难过表情图标，颜色为红色，icon:6 为圆圈+微笑表情图标，颜色为绿色，icon:6 为圆圈+！表情图标，颜色为橙色
+
+            time: 2000 //2秒关闭（如果不配置，默认是3秒）
+        }) ;
+
+         //内容关闭后，还可以做点什么
+        layer.msg('关闭后想做些什么', function(){
+          //do something
+        });
+        layer.msg('同上', {
+          icon: 1,
+          time: 2000 //2秒关闭（如果不配置，默认是3秒）
+        }, function(){
+          //do something
+        });
+    </pre>
+</div>
+
+<div class="area_demo ng-scope">
+    <div class="title">模块展示</div>
+   <div class="mt10">无</div>
+</div>
+<div class="area_path ng-scope">
+    <div class="title">模块位置</div>
+    <div class="mt10">当前项目已使用：顾问社区-采购券-赚采购券（弹窗），顾问社区-顾问成长-顾问等级权限（tips层即提示带三角图标）</div>
+    <div class="mt10">css   <a href="http://192.168.1.158:872/static/asset/desktop/dest/css/layer_popup.css">下载地址</a></div>
+    <div class="mt10">js    <a href="http://192.168.1.158:872/static/asset/desktop/dest/js/layer.js">下载地址</a></div>
+    <div class="mt10">所需要的图片    <a href="http://192.168.1.158:872/static/asset/desktop/dest/img/lib_layer/icon.png">下载地址</a></div>
+    <div class="mt10">ladding的图片    <a href="http://192.168.1.158:872/static/asset/desktop/dest/img/lib_layer/loading-2.gif">下载地址</a></div>
+</div>
+<div class="area_path ng-scope">
+    <div class="title">版本记录</div>
+    <div class="mt10">2016-5-27    当前所用版本：layer-v2.2   <a href="http://layer.layui.com">官方文档</a> </div>
+</div>

@@ -5,17 +5,13 @@
  * @version 
  */
 
-var app = angular.module('app',[]);
+var app = angular.module('app',['ngRoute']);
 app.controller('list_div', function($scope){
-    $scope.lists = data;
-    $scope.a = function(i){
-        document.getElementsByTagName('iframe')[0].setAttribute('src',i);
-    };
+    $scope.lists = listData;
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent){
         var e = document.createEvent('MouseEvent');
         e.initEvent('click', false, false);
-        document.getElementsByClassName('sidebar')[0].getElementsByTagName('li')[3].dispatchEvent(e);
-
+        document.getElementsByClassName('sidebar')[0].getElementsByTagName('li')[0].dispatchEvent(e);
      /*   var sidebar = document.getElementById('J_sidebar'),
         li = sidebar.getElementsByTagName('li');
         for(var i = 0; i < li.length; i++){
@@ -25,7 +21,29 @@ app.controller('list_div', function($scope){
             }
         }*/
     });
+
 });
+function routeConfig($routeProvider){
+    $routeProvider.
+    /*when('/', {
+        controller: detailController,
+        templateUrl: 'detail.html'
+    }).*/
+    when('/demo/:src', {
+        controller: detailController,
+        templateUrl: function($routeParams){
+            return 'detail/' + $routeParams.src + '.html'
+        }
+    }).
+    otherwise({
+        redirectTo: 'demo/original'
+    });
+}
+app.config(routeConfig);
+function detailController($scope, $routeParams){
+    SyntaxHighlighter.highlight()
+}
+
 app.directive('onFinishRenderFilters', function($timeout){
     return{
         restrict: 'A',
@@ -39,8 +57,7 @@ app.directive('onFinishRenderFilters', function($timeout){
     };
 });
 (function(){
-    var iframe = document.getElementsByTagName('iframe')[0],
-        container = document.getElementsByClassName('container')[0],
+    var container = document.getElementsByClassName('container')[0],
         clientHeight = document.documentElement.clientHeight;
     container.style.height = clientHeight - 4 + 'px';
 })();

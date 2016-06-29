@@ -1,13 +1,25 @@
-var data = [{
-    "src": "sample/gulpfile/index.php",
-    "tit": "gulpfile.js规范"
+var listData = [{
+    "src": "gulpfile",
+    "title": "gulpfile.js规范"
 },{
-    "src": "sample/sass/index.php",
-    "tit": "SASS编码风格规范"
+    "src": "sass",
+    "title": "SASS编码风格规范"
 },{
-    "src": "sample/fastclick/index.php",
-    "tit": "fastclick.js"
+    "src": "initial",
+    "title": "initial.css基础格式"
+},{
+    "src": "fastclick",
+    "title": "fastclick.js"
+},{
+    "src": "lazyload",
+    "title": "jquery.lazyload.js"
 }, {
-    "src": "sample/tab_long/index.php",
-    "tit": "长页面tab切换导航"
+    "src": "tab_long",
+    "title": "长页面tab切换导航"
+}, {
+    "src": "layer",
+    "title": "弹窗组件Layer"
+}, {
+    "src": "original",
+    "title": "标准格式，提供复制用"
 }]

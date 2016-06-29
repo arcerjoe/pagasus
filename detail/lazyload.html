@@ -1,0 +1,40 @@
+<div class="area_directions">
+    <ul>
+        <li>模块来源：<a href="http://192.168.1.5:876/info">192.168.1.5:876/info</a></li>
+        <li>依赖于jQuery的一个惰性加载插件</li>
+        <li>引入后预订为全局img默认触发，注意必须定义width or height值才能生效</li>
+        <li>只需要在img上把原来src标签改成lazysrc</li>
+        <li>例外元素请增加.lazynot,原来的src照写。这样就不会赋予惰性加载效果</li>
+        <li>配置默认图片位置在压缩文件的最后一段.attr('src','...'),里面的图片路径值请替换当前项目的默认图片路径</li>
+    </ul>
+</div>
+<div class="area_code">
+    <pre class="brush: html"> 
+    &lt;!DOCTYPE html>
+    &lt;html>
+    &lt;head>
+    <meta charset="bibibi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit" />
+    <link type="text/css" rel="stylesheet" href="/static_v3/css/info/index.css" />
+    <script src="/static_v3/js/jquery.min.js"></script> //公司全局默认jQuery在head部分引入，插件依赖这个库
+    &lt;/head>
+    &lt;body>
+        <img lazysrc="/static_v3/image/event_img_bg.png" width="100" /> //已触发，记得写width or height，不然会失效
+        <img class="lazynot" src="/static_v3/image/amount_operate_icon_on.gif" width="100" /> //例外不惰性加载写法
+        <script src="/static_v3/js/jquery.lazyload.min.js"></script> //调用插件
+    &lt;/body>
+    &lt;/html>
+    &lt;/pre> 
+</div>
+<div class="area_path">
+    <div class="mt10">
+        jquery.lazyload.js <a href="/pegasus/source code/jquery.lazyload.js">链接下载</a><br />
+        jquery.lazyload.min.js <a href="/pegasus/source code/jquery.lazyload.min.js">链接下载</a>
+    </div>
+</div>
+<div class="area_path">
+    <div class="mt10">
+        2016/05/26 添加。整理出原版和min压缩两个版本
+    </div>
+</div>

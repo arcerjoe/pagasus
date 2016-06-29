@@ -1,0 +1,137 @@
+<div class="area_directions">
+    <ul>
+        <li>SASS配置规范</li>
+        <li>选修基本格式，强迫症患者福音</li>
+        <li>一个单位tab缩进，4个空格</li>
+        <li>属性和值之间有一个空格；多个参数的时候，逗号后面的预留一个空格；加减操作符之间也一样，保持和JS编码风格一致。eg: $aqua: lighten(#00f, 10%);</li>
+    </ul>
+</div>
+<div class="area_code">
+    <pre class="brush: sass"> 
+    //变量类
+
+    $red: #f00;
+    .elem{
+        color: $red;
+    }
+
+
+    //计算
+    .elem{
+        width: $wid * 50%;
+    }
+
+
+    //嵌套
+    section{
+        //维持较少的复杂层级嵌套，保证输出的css选择器不会大于3个至4个
+        .hd{
+            ...
+        }
+        .bd{
+            ...
+        }
+    }
+
+
+    //伪类
+    a{
+        ...
+        &:hover{
+            ...
+        }
+        &:nth-child(2n){
+            ...
+        }
+    }
+
+
+    //继承，class常量块
+    //第一种场景，不推荐
+    .sidebar_box{
+        width: 200px;
+        border: 1px solid;
+    }
+    .content_bottom_box{
+        @extend .sidebar_box;
+    }
+    //第二种场景，推荐
+    %border_box{
+        width: 200px;
+        border: 1px solid;
+    }
+    .content_bottom_box{
+        @extend %border_box
+    }
+
+
+    //mixin 宏，代码块
+    @mixin wid($val: 10){
+        width: $val + px;
+    }
+    .elem{
+        @include wid;
+        @include wid(200);
+    }
+
+
+    //颜色函数
+    $aqua: lighten(#00f, 10%);
+
+    //if/else
+    .elem{
+        @if lightness($color) > 30% {
+    　　　　background-color: #000;
+    　　} @else {
+    　　　　background-color: #fff;
+    　　}
+    }
+
+
+    //循环
+    @for $i from 1 to 100{
+        w#{$i}{
+            width: #{$i}px;
+        }
+    }
+
+    $pageThemeVariable: 'theme_blue', 'theme_green', 'theme_yellow';
+    //三套颜色符合function定义的base color
+    $themeColorVariable: #0390f4, #11a84a, #ffa800;
+    $themeColorVariableThin: #1e9ef8, #14b350, #ffb526;
+    $themeColorVariableDeep: #0f75d4, #09963e, #ec9c00;
+
+    @each $list in $pageThemeVariable{
+        $i: index($pageThemeVariable, $list);
+        .#{$list}{
+            //首页
+            .search_top{
+                border-color: nth($themeColorVariable, $i);
+                .btn{
+                    border-color: nth($themeColorVariable, $i);
+                    background: nth($themeColorVariable, $i);
+                }
+            }
+            //列表页
+            .box_change{
+                dd a.on{
+                    background: nth($themeColorVariable, $i);
+                }
+            }
+            //详情页
+            .box200bt{
+                border-top-color: nth($themeColorVariable, $i);
+            }
+        }
+    }
+    </pre>
+</div>
+<div class="area_path">
+    <div class="mt10"></div>
+</div>
+<div class="area_path">
+    <div class="mt10">
+        2016/05/26 迁移至原版pegasus<br />
+        2016/06/29 减少demo代码量，看起来比较清晰简洁一点
+    </div>
+</div>
