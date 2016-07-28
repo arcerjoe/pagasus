@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit" />
+    <link rel="stylesheet" type="text/css" href="http://192.168.1.36:701/static_m/asset/dest/transitcss/mobile.css?v=6711" />
+    <script src="http://192.168.1.36:701/static/js/jquery1.10.2.js"></script>
+</head>
+
+<body>
+</body>
+    <div class="mod_topbar">
+        <i class="back"></i>
+        <div class="hd J_filterTitle"><span>国内长线</span><i class="icon-arr down"></i></div>
+        <div class="lnk" data-nativeicon="search">
+            <a href="/search/new_index" class="search"></a>
+        </div>
+    </div>
+    <div class="mod_filterlist filterTitle J_filterTitle_sele">
+        <div class="bd">
+            <p data-en_type="zhoubian">周边游<i class="icon"></i></p>
+            <p class="cur" data-en_type="guonei">国内长线<i class="icon"></i></p>
+            <p data-en_type="chujing">出境游<i class="icon"></i></p>
+        </div>
+    </div>
+    <div class="mod_filterlist J_filterList mt-1" id="J_statics">
+        <table class="hd">
+            <tr>
+                <td>
+                    <div class="sele">
+                        <span>目的地</span>
+                        <i class="icon-arr down"></i>
+                    </div>
+                </td>
+                <td>
+                    <div class="sele">
+                        <span> 综合排序 </span>
+                        <i class="icon-arr up"></i>
+                    </div>
+                </td>
+                <td>
+                    <div class="sele">
+                        <span>筛选</span>
+                        <i class="icon-arr down"></i>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="bd" data-type="area_id">
+            <ul class="sub_filter">
+                <li>
+                    <p class="cur" data-area_id="0">全部目的地<i class="icon"></i></p>
+                    <p data-area_id="508">港澳台<i class="icon"></i></p>
+                    <p data-area_id="501">海岛线<i class="icon"></i></p>
+                    <p data-area_id="502">东南亚<i class="icon"></i></p>
+                    <p data-area_id="506">南亚<i class="icon"></i></p>
+                    <p data-area_id="507">日本韩国朝鲜<i class="icon"></i></p>
+                    <p data-area_id="2503">大洋洲<i class="icon"></i></p>
+                    <p data-area_id="504">欧洲<i class="icon"></i></p>
+                    <p data-area_id="509">中东非<i class="icon"></i></p>
+                    <p data-area_id="505">美洲<i class="icon"></i></p>
+                    <p data-area_id="2439">邮轮<i class="icon"></i></p>
+                </li>
+            </ul>
+        </div>
+        <div class="bd" data-type="sort">
+            <p class="cur" data-sort="0">综合排序<i class="icon"></i></p>
+            <p data-sort="1">利润最高<i class="icon"></i></p>
+            <p data-sort="2">销量最佳<i class="icon"></i></p>
+            <p data-sort="3">人气最旺<i class="icon"></i></p>
+            <p data-sort="4">最近新品<i class="icon"></i></p>
+        </div>
+        <div class="bd filterarea">
+                <div class="popup_filtrate">
+                <form method="get" action="/xianlu/index/chujing" id="search-form">
+                    <input type="hidden" name="total_page" value="1" id="J_total_page">
+                    <input type="hidden" value="2" id="J_page_num">
+                    <input type="hidden" name="area_id" value="0" id="J_area_id">
+                    <input type="hidden" name="sort" value="0" id="J_sort">
+                    <input type="hidden" name="typeid2" value="0" id="J_typeid2">
+                    <input type="hidden" name="month" value="0" id="J_month">
+                    <input type="hidden" name="confirm_type" value="0" id="J_confirm_type">
+                    <input type="hidden" name="cid" value="0" id="J_cid">
+                <div class="fil_cond first">
+                    <div class="tit">出游方式</div>
+                    <div class="con clear">
+                        <a href="javascript:;" data-input_name="typeid2" data-val="0" class="J_search_form cur">全部</a>
+                        <a href="javascript:;" data-input_name="typeid2" data-val="2" class="J_search_form">自由行</a>
+                        <a href="javascript:;" data-input_name="typeid2" data-val="1" class="J_search_form">跟团游</a>
+                    </div>
+                </div>
+                <!--fil_cond End-->
+                <div class="fil_cond">
+                    <div class="tit">出发日期</div>
+                    <div class="con clear">
+                        <a href="javascript:;" data-input_name="month" data-val="0" class="J_search_form cur">全部</a>
+                                                                        <a href="javascript:;" data-input_name="month" data-val="2016-07" class="J_search_form ">7月</a>
+                                                <a href="javascript:;" data-input_name="month" data-val="2016-08" class="J_search_form ">8月</a>
+                                                <a href="javascript:;" data-input_name="month" data-val="2016-09" class="J_search_form ">9月</a>
+                                                <a href="javascript:;" data-input_name="month" data-val="2016-10" class="J_search_form ">10月</a>
+                                                <a href="javascript:;" data-input_name="month" data-val="2016-11" class="J_search_form ">11月</a>
+                                                <a href="javascript:;" data-input_name="month" data-val="2016-12" class="J_search_form ">12月</a>
+                                                                    </div>
+                </div>
+                <!--fil_cond End-->
+                <div class="fil_cond">
+                    <div class="tit">出游天数</div>
+                    <div class="con clear">
+                        <input type="text" name="daynum" id="J_daynum" class="w80" value="0">天
+                    </div>
+                </div>
+                <!--fil_cond End-->
+                <div class="fil_cond">
+                    <div class="tit">确认方式</div>
+                    <div class="con clear">
+                        <a href="javascript:;" data-input_name="confirm_type" data-val="0" class="J_search_form cur">全部</a>
+                        <a href="javascript:;" data-input_name="confirm_type" data-val="2" class="J_search_form">即时确认</a>
+                        <a href="javascript:;" data-input_name="confirm_type" data-val="1" class="J_search_form">二次确认</a>
+                    </div>
+                </div>
+                                <div class="fil_cond">
+                    <div class="tit">供应商</div>
+                    <div class="con clear">
+                        <a href="javascript:;" data-input_name="cid" data-val="0" class="J_search_form cur">全部</a>
+                                                <a href="javascript:;" data-input_name="cid" data-val="123682" class="J_search_form">欣欣旅游</a>
+                                            </div>
+                </div>
+                                </form>
+            </div>
+            
+            <div class="mod_footer_tool">
+                <a href="javascript:;" class="btn no J_reset">重置</a>
+                <a href="javascript:;" class="btn yes J_submit">确认</a>
+            </div>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <script src="http://192.168.1.36:701/static/js/mobile/fastclick.min.js"></script>
+    <script src="http://192.168.1.36:701/static_m/asset/dest/js/global.js"></script>
+</html>

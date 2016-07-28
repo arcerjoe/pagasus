@@ -19,7 +19,20 @@
 <body class="body_modules_index">
 <div class="sidebar" id="J_sidebar" ng-controller="list_div">
     <ul>
-        <li ng-repeat="item in lists" on-finish-render-filters>
+        <li>编码规范</li>
+        <li ng-repeat="item in lists" ng-if="item.type === 0" on-finish-render-filters>
+            <a href="#/demo/{{item.src}}">{{item.title}}</a>
+        </li>
+    </ul>
+    <ul>
+        <li>HTML结构模块</li>
+        <li ng-repeat="item in lists" ng-if="item.type === 1" on-finish-render-filters>
+            <a href="#/demo/{{item.src}}">{{item.title}}</a>
+        </li>
+    </ul>
+    <ul>
+        <li>JS组件模块</li>
+        <li ng-repeat="item in lists" ng-if="item.type === 2" on-finish-render-filters>
             <a href="#/demo/{{item.src}}">{{item.title}}</a>
         </li>
     </ul>

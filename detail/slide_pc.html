@@ -1,0 +1,56 @@
+<div class="area_directions">
+    <ul>
+        <li>模块来源：<a href="http://192.168.1.36:701/fenxiao/visa">签证大厅</a></li>
+        <li>需要调用responsiveslides.css，responsiveslides.min.js。并且依赖jQuery</li>
+        <li>如果是宽度自适应的平铺，请外层加入.respon，如果是正常宽高的，请去掉这个class</li>
+        <li>custom样式直接加到responsiveslides.css底部，一般是绘制宽高，如果有需要重定义ui元素的话可以加上，或者在custom.css里面加，不过该出加比较方便统一操作和清理</li>
+        <li>调用方式是结尾声明responsiveSlides方法</li>
+    </ul>
+</div>
+<div class="area_code">
+    <pre class="brush: xml"> 
+        &lt;link href="/static/public/css/responsiveslides.css" rel="stylesheet" type="text/css">
+
+        <!--callbacks_container pc-->
+        &lt;div class="callbacks_container respon">
+            &lt;ul class="rslides" id="slide">
+                &lt;li>
+                    &lt;a href="">
+                        &lt;img src="/static/backstage/img/visa/test.jpg" alt="" />
+                    &lt;/a>
+                &lt;/li>
+                &lt;li>
+                    &lt;a href="">
+                        &lt;img src="/static/backstage/img/visa/test.jpg" alt="" />
+                    &lt;/a>
+                &lt;/li>
+            &lt;/ul>
+        &lt;/div>
+        <!--/callbacks_container-->
+
+        &lt;script src="/static/public/js/plg/responsiveslides.min.js"></script>
+        &lt;script>
+            $(function(){
+                $("#slide").responsiveSlides({
+                    auto: false, //是否自动播放
+                    pager: false, //是否显示底部状态
+                    nav: true, //是否显示左右翻页按钮
+                    speed: 500, //过渡速度 非必填
+                    timeout: 3000, //播放速度 非必填
+                    namespace: "callbacks" //respon状态要加属性
+                });
+            })
+        &lt;/script>
+    </pre>
+</div>
+<div class="area_demo">
+    <a href="sample/slide_pc/index.html"></a>
+    <div class="content">
+        <iframe src="sample/slide_pc/index.html" frameborder="no"></iframe>
+    </div>
+</div>
+<div class="area_path">
+    <div class="mt10">
+        v1.0 移植插件，做了固定宽高和respon两个版本，去掉多余的样式 <a href="http://responsiveslides.com/" target="_blank">插件官网</a>
+    </div>
+</div>

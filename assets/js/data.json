@@ -1,25 +1,53 @@
+
+/*
+type值定义 
+0: standard
+1: HTMLmodules
+2: JSmodules
+*/
+
 var listData = [{
     "src": "gulpfile",
-    "title": "gulpfile.js规范"
+    "title": "gulpfile.js规范",
+    "type": 0
 },{
     "src": "sass",
-    "title": "SASS编码风格规范"
+    "title": "SASS编码风格规范",
+    "type": 0
 },{
     "src": "initial",
-    "title": "initial.css基础格式"
-},{
-    "src": "fastclick",
-    "title": "fastclick.js"
-},{
-    "src": "lazyload",
-    "title": "jquery.lazyload.js"
-}, {
-    "src": "tab_long",
-    "title": "长页面tab切换导航"
-}, {
-    "src": "layer",
-    "title": "弹窗组件Layer"
+    "title": "initial.css基础格式",
+    "type": 0
 }, {
     "src": "original",
-    "title": "标准格式，提供复制用"
+    "title": "标准格式模板，提供复制用",
+    "type": 0
+},{
+    "src": "mobiletemplate",
+    "title": "m版通用模块预览",
+    "type": 1
+},{
+    "src": "fastclick",
+    "title": "fastclick.js",
+    "type": 2
+},{
+    "src": "lazyload",
+    "title": "jquery.lazyload.js",
+    "type": 2
+}, {
+    "src": "tab_long",
+    "title": "长页面tab切换导航",
+    "type": 2
+}, {
+    "src": "layer",
+    "title": "弹窗组件Layer",
+    "type": 2
+}, {
+    "src": "slide_pc",
+    "title": "幻灯片组件pc",
+    "type": 2
+}, {
+    "src": "slide_m",
+    "title": "幻灯片组件m",
+    "type": 2
 }]

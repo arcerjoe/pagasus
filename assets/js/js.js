@@ -12,10 +12,15 @@ app.controller('list_div', function($scope){
         var e = document.createEvent('MouseEvent');
         e.initEvent('click', false, false);
         document.getElementsByClassName('sidebar')[0].getElementsByTagName('li')[0].dispatchEvent(e);
+        $('#J_sidebar').find('ul').each(function(){
+            $(this).find('li').eq(0).on('click', function(){
+                $(this).parent().siblings().removeClass('cur').end().addClass('cur');
+            });
+        }).eq(0).find('li').eq(0).trigger('click');
      /*   var sidebar = document.getElementById('J_sidebar'),
         li = sidebar.getElementsByTagName('li');
         for(var i = 0; i < li.length; i++){
-            li[i].onclick = function(){
+            l;i[i].onclick = function(){
                 // removeClass2(li,'cur')
                 addClass(this,'cur')
             }
@@ -36,7 +41,7 @@ function routeConfig($routeProvider){
         }
     }).
     otherwise({
-        redirectTo: 'demo/original'
+        redirectTo: 'demo/gulpfile'
     });
 }
 app.config(routeConfig);
@@ -56,24 +61,12 @@ app.directive('onFinishRenderFilters', function($timeout){
         }
     };
 });
-(function(){
+function containerHeight(){
     var container = document.getElementsByClassName('container')[0],
         clientHeight = document.documentElement.clientHeight;
-    container.style.height = clientHeight - 4 + 'px';
-})();
-
-/*function addClass(ele,className){
-    console.log(ele.parentNode.childNodes && ele.nodeType == 1)
-      ele.className += " " + className;
-  };*/
-  function removeClass2(ele,className){
-     var tmpClassName = ele.className;
-     ele.className = null;
-     ele.className = tmpClassName.split(new RegExp(" " + className + "|" + className + " " + "|" + "^" + className + "$","ig")).join("");
- };
-
- $(function(){
-    $('#J_sidebar').find('li').click(function(){
-        $(this).siblings().removeClass('cur').end().addClass('cur');
-    })
- })
+    container.style.height = clientHeight - 10 + 'px';
+};
+containerHeight();
+$(window).on('resize', function(){
+    containerHeight();
+});

@@ -100,28 +100,57 @@ sub {
 
 // 模块首页样式
 .body_modules_index {
-    padding-left: 200px;
+    padding-left: 260px;
 }
 
 // sidebar
 .sidebar {
     float: left;
-    width: 200px;
-    margin-left: -200px;
-    background: #2a333c;
+    width: 259px;
+    height: 100%;
+    margin-left: -260px;
+    background: #eee;
+    border-right: 1px solid #999;
     font-size: 13px;
+    ul{
+        margin-top: -1px;
+        &.cur{
+            li{
+                display: block;
+            }
+        }
+        li{
+            display: none;
+            height: 37px;
+            line-height: 37px;
+            &:first-child{
+                display: block;
+                color: #3185b9;
+                background: #eee;
+                border-top: 1px solid #3185b9;
+                border-bottom: 1px solid #3185b9;
+                padding: 0 10px;
+                font-weight: 700;
+                font-size: 14px;
+                transition: .3s ease-in;
+                cursor: pointer;
+                &:hover{
+                    text-indent: 1em;
+                }
+            }
+        }
+    }
     a{
         display: block;
-        height: 34px;
-        line-height: 34px;
         overflow: hidden;
-        padding: 0 5px;
-        color: #fff;
+        margin: 0 5px;
+        color: #333;
         text-decoration: none;
         transition: .2s ease-in;
-        border-bottom: 1px solid #c12127;
+        border-bottom: 1px solid #ccc;
         &:hover, &.cur {
-            background: #c12127;
+            color: #c12127;
+            border-color: #c12127;
         }
     }
 }
@@ -133,6 +162,7 @@ sub {
 }
 .container{
     padding: 5px 20px;
+    overflow-y: scroll;
     a{
         color: #03A9F4;
     }

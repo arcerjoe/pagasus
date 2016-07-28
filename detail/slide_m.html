@@ -1,0 +1,44 @@
+<div class="area_directions">
+    <ul>
+        <li>模块来源：<a href="http://192.168.1.36:700/xianlu/info/14243">m.cncn.net详情页</a></li>
+        <li>需要调用swiper.css（非自动化开发编译的话），swiper.min.js</li>
+        <li>调用方式是结尾new一个对象方法，参数请查询api</li>
+    </ul>
+</div>
+<div class="area_code">
+    <pre class="brush: xml"> 
+        &lt;link href="<{$smarty.const.B2B_URL}>static_m/asset/dest/css/lib/swiper.css" rel="stylesheet" type="text/css" />
+
+        &lt;div class="swiper-container">
+            &lt;div class="swiper-wrapper">
+                &lt;div class="swiper-slide">
+                    &lt;img src="<{if !empty($line_info.fileurl_m)}><{$line_info.fileurl_m|escape}><{else}><{$smarty.const.B2B_URL}>static/images/caigou/nopro_data.jpg<{/if}>" alt="" />
+                &lt;/div>
+                &lt;div class="swiper-slide">
+                    &lt;img src="<{if !empty($line_info.fileurl_m)}><{$line_info.fileurl_m|escape}><{else}><{$smarty.const.B2B_URL}>static/images/caigou/nopro_data.jpg<{/if}>" alt="" />
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="swiper-pagination">&gt;/div>
+        &lt;/div>
+
+        &lt;script src="<{$smarty.const.B2B_URL}>static_m/asset/dest/js/lib/swiper.min.js"></script>
+        &lt;script>
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                autoplay: 5000
+            });
+        &lt;/script>
+    </pre>
+</div>
+<div class="area_demo">
+    <a href="http://idangero.us/swiper/demos/"></a>
+    <div class="content">
+        <iframe src="http://idangero.us/swiper/demos/" frameborder="no"></iframe>
+    </div>
+</div>
+<div class="area_path">
+    <div class="mt10">
+        v1.0 移植插件，去掉3D效果的样式 <a href="http://idangero.us/swiper/" target="_blank">插件官网</a>。目前含两个版本，一个是含在mobile.scss里面的模块，一个是在外部的.css。后期全部转换为前者。
+    </div>
+</div>
